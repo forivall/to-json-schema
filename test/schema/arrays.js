@@ -423,6 +423,18 @@ describe('Array', () => {
       })
     })
 
+    it('should get an array of string arrays when one array is empty', () => {
+      testSchemaMerge([['foo'], []], {
+        type: 'array',
+        items: {
+          type: 'array',
+          items: {
+            type: 'string'
+          }
+        }
+      })
+    })
+
     // // TODO eventualy make this work
     // it('merging strings of different formats', () => {
     //   testSchemaMerge([{a: ['test']}, {a: ['2012-07-08T16:41:41.532Z']}], {

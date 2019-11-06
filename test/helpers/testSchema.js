@@ -10,7 +10,11 @@ function testSchema(options) {
     const optToUse = merge({}, opt, additionalOptions)
     const schema = toJsonSchema(instance, optToUse)
     if (!isEqual(schema, jsonSchema)) {
-      throw new Error('Generated schema is not deep equal with expected result')
+      throw new Error(`Generated schema is not deep equal with expected result\nExpected:\n${
+        JSON.stringify(jsonSchema, null, '  ')
+      }\nActual:\n${
+        JSON.stringify(schema, null, '  ')
+      }`)
     }
   }
 }
